@@ -106,7 +106,20 @@ function idInvalidCardCompanies(invalidCards) {
     }
     return arrayOfCompanies;
 }
-
+function stringToIntArray(cardNumbers) {
+    //validation:
+    if(typeof cardNumbers !== 'string') {
+        return 'Type Error- input of wrong value type entered.';
+    }
+    let companyNumber = cardNumbers.charAt(0);
+    var mysteryCard = [companyNumber];
+    for (i = 1; i < cardNumbers.length; i++) {
+        mysteryCard.push(parseInt(cardNumbers[i]));
+        console.log(cardNumbers[i]);
+    }
+    mysteryCard.reverse();
+    return mysteryCard;
+}
 //tests
 // let validTest = validateCred(valid1);
 // console.log(validTest);
@@ -130,3 +143,7 @@ console.log(flaggedCompanies);
 // console.log(mysteryTest);
 // mysteryTest = validateCred(invalid2);
 // console.log(mysteryTest);
+
+var mysteryNum = '4532048570850725';
+var mystery6 = stringToIntArray(mysteryNum);
+mystery6.forEach((num) => console.log(num));
