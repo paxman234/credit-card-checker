@@ -31,21 +31,25 @@ function validateCred(cards) {
     let newArray = [];
     let total = 0;
     let rightIterable = cards.length  - 1;
-    for (let i=rightIterable; i > 0; i--) {
+    for (let i=rightIterable; i >= 0; i--) {
         currentDigit = cards[i];
         if(counter % 2 === 0) {
             currentDigit *= 2;
             if(currentDigit > 9) {
                 currentDigit -= 9;
             }
+            // console.log(currentDigit);
             newArray.push(currentDigit);
         }
-        newArray.push(currentDigit);
+        else{
+            newArray.push(currentDigit);
+        }
         counter++;
     }
-    for (const val in newArray) {
+    for (const val of newArray) {
         total += val;
     }
+    console.log(total)
     if(total % 10 === 0) {
         return true;
     }
