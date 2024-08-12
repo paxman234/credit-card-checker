@@ -79,36 +79,30 @@ function idInvalidCardCompanies(invalidCards) {
     for(const cardArray of invalidCards) {
         var cardLength = cardArray.length;
         var companyNumber = cardArray[cardLength-1];
-        if(companyNumber !== 3 && companyNumber !== 4 && 
-            companyNumber !== 5 && companyNumber !== 6) {
-                console.log('Company not found.')
-            } else {
-                switch (companyNumber) {
-                    case 3:
-                        if(!arrayOfCompanies.includes('Amex (American Express)')) {
-                            arrayOfCompanies.push('Amex (American Express)');
-                        }
-                        break;
-                    case 4:
-                        if(!arrayOfCompanies.includes('Visa')) {
-                            arrayOfCompanies.push('Visa');
-                        }
-                        break;
-                    case 5:
-                        if(!arrayOfCompanies.includes('Mastercard')) {
-                            arrayOfCompanies.push('Mastercard');
-                        }
-                        break;
-                    case 6:
-                        if(!arrayOfCompanies.includes('Discover')) {
-                            arrayOfCompanies.push('Discover');
-                        }
-                        break;
-                    // default:
-                    //     return arrayOfCompanies;
-                
+        switch (companyNumber) {
+            case 3:
+                if(!arrayOfCompanies.includes('Amex (American Express)')) {
+                    arrayOfCompanies.push('Amex (American Express)');
                 }
-            }
+                break;
+            case 4:
+                if(!arrayOfCompanies.includes('Visa')) {
+                    arrayOfCompanies.push('Visa');
+                }
+                break;
+            case 5:
+                if(!arrayOfCompanies.includes('Mastercard')) {
+                    arrayOfCompanies.push('Mastercard');
+                }
+                break;
+            case 6:
+                if(!arrayOfCompanies.includes('Discover')) {
+                    arrayOfCompanies.push('Discover');
+                }
+                break;
+            default:
+                console.log('Company not found.');
+        }
     }
     return arrayOfCompanies;
 }
