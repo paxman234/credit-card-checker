@@ -25,8 +25,39 @@ const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, inval
 
 // Add your functions below:
 
+function validateCred(cards) {
+    let currentDigit = 0;
+    let counter = 1;
+    let newArray = [];
+    let total = 0;
+    let rightIterable = cards.length  - 1;
+    for (let i=rightIterable; i > 0; i--) {
+        currentDigit = cards[i];
+        if(counter % 2 === 0) {
+            currentDigit *= 2;
+            if(currentDigit > 9) {
+                currentDigit -= 9;
+            }
+            newArray.push(currentDigit);
+        }
+        newArray.push(currentDigit);
+        counter++;
+    }
+    for (const val in newArray) {
+        total += val;
+    }
+    if(total % 10 === 0) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
 
-
+let validTest = validateCred(valid1);
+console.log(validTest);
+let invalidTest = validateCred(invalid1);
+console.log(invalidTest);
 
 
 
