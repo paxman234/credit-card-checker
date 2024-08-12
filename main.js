@@ -85,22 +85,22 @@ function idInvalidCardCompanies(invalidCards) {
             } else {
                 switch (companyNumber) {
                     case 3:
-                        if(!('Amex (American Express)' in arrayOfCompanies)) {
+                        if(!arrayOfCompanies.includes('Amex (American Express)')) {
                             arrayOfCompanies.push('Amex (American Express)');
                         }
                         break;
                     case 4:
-                        if(!('Visa' in arrayOfCompanies)) {
+                        if(!arrayOfCompanies.includes('Visa')) {
                             arrayOfCompanies.push('Visa');
                         }
                         break;
                     case 5:
-                        if(!('Mastercard' in arrayOfCompanies)) {
+                        if(!arrayOfCompanies.includes('Mastercard')) {
                             arrayOfCompanies.push('Mastercard');
                         }
                         break;
                     case 6:
-                        if(!('Discover' in arrayOfCompanies)) {
+                        if(!arrayOfCompanies.includes('Discover')) {
                             arrayOfCompanies.push('Discover');
                         }
                         break;
