@@ -73,6 +73,46 @@ function findInvalidCards(cardsBatch) {
         return invalidCards;
     }
 }
+
+function idInvalidCardCompanies(invalidCards) {
+    arrayOfCompanies = [];
+    for(const cardArray of invalidCards) {
+        var cardLength = cardArray.length;
+        var companyNumber = cardArray[cardLength-1];
+        if(companyNumber !== 3 && companyNumber !== 4 && 
+            companyNumber !== 5 && companyNumber !== 6) {
+                console.log('Company not found.')
+            } else {
+                switch (companyNumber) {
+                    case 3:
+                        if(!('Amex (American Express)' in arrayOfCompanies)) {
+                            arrayOfCompanies.push('Amex (American Express)');
+                        }
+                        break;
+                    case 4:
+                        if(!('Visa' in arrayOfCompanies)) {
+                            arrayOfCompanies.push('Visa');
+                        }
+                        break;
+                    case 5:
+                        if(!('Mastercard' in arrayOfCompanies)) {
+                            arrayOfCompanies.push('Mastercard');
+                        }
+                        break;
+                    case 6:
+                        if(!('Discover' in arrayOfCompanies)) {
+                            arrayOfCompanies.push('Discover');
+                        }
+                        break;
+                    // default:
+                    //     return arrayOfCompanies;
+                
+                }
+            }
+    }
+    return arrayOfCompanies;
+}
+
 //tests
 // let validTest = validateCred(valid1);
 // console.log(validTest);
@@ -82,6 +122,8 @@ var invalidCards = findInvalidCards(batch);
 
 console.log(invalidCards);
 
+var flaggedCompanies = idInvalidCardCompanies(invalidCards);
+console.log(flaggedCompanies);
 // let mysteryTest = validateCred(mystery4);
 // console.log(mysteryTest);
 // mysteryTest = validateCred(mystery5);
