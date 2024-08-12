@@ -49,7 +49,7 @@ function validateCred(cards) {
     for (const val of newArray) {
         total += val;
     }
-    console.log(total)
+    // console.log(total)
     if(total % 10 === 0) {
         return true;
     }
@@ -57,13 +57,40 @@ function validateCred(cards) {
         return false;
     }
 }
+function findInvalidCards(cardsBatch) {
+    if(!Array.isArray(cardsBatch)) {
+        console.log('Type Error');
+    }
+    else {
+        let answer = true;
+        const invalidCards = [];
+        for(const cardArray of cardsBatch) {
+            answer = validateCred(cardArray);
+            if(answer !== true) {
+                invalidCards.push(cardArray);
+            }
+        }
+        return invalidCards;
+    }
+}
+//tests
+// let validTest = validateCred(valid1);
+// console.log(validTest);
+// let invalidTest = validateCred(invalid1);
+// console.log(invalidTest);
+var invalidCards = findInvalidCards(batch);
 
-let validTest = validateCred(valid1);
-console.log(validTest);
-let invalidTest = validateCred(invalid1);
-console.log(invalidTest);
+console.log(invalidCards);
 
-
-
-
-
+// let mysteryTest = validateCred(mystery4);
+// console.log(mysteryTest);
+// mysteryTest = validateCred(mystery5);
+// console.log(mysteryTest);
+// let mysteryTest = validateCred(invalid5);
+// console.log(mysteryTest);
+// mysteryTest = validateCred(invalid4);
+// console.log(mysteryTest);
+// let mysteryTest = validateCred(invalid3);
+// console.log(mysteryTest);
+// mysteryTest = validateCred(invalid2);
+// console.log(mysteryTest);
